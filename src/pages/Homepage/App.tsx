@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Card, Button } from "../../components/ui";
 
 function App(): JSX.Element {
@@ -11,9 +13,13 @@ function App(): JSX.Element {
         header={{
           title: "Rendez-vous",
           buttonGroup: (
-            <Button variety="primary" size="medium">
-              Button
-            </Button>
+            <Button
+              variety="outline"
+              size="m"
+              iconRight={
+                <FontAwesomeIcon icon={faArrowLeft} className="w-[18px]" />
+              }
+            />
           ),
         }}
       >
