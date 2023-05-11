@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { Card, Button } from "../../components/ui";
+import { faArrowLeft, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { Card, Button, ButtonGroup } from "../../components/ui";
 
 function App(): JSX.Element {
   return (
@@ -13,13 +13,28 @@ function App(): JSX.Element {
         header={{
           title: "Rendez-vous",
           buttonGroup: (
-            <Button
-              variety="outline"
-              size="m"
-              iconRight={
-                <FontAwesomeIcon icon={faArrowLeft} className="w-[18px]" />
-              }
-            />
+            <ButtonGroup gap="m">
+              <Button
+                variety="outline"
+                size="m"
+                iconRight={
+                  <FontAwesomeIcon
+                    icon={faArrowLeft}
+                    className="w-[18px] h-[18px]"
+                  />
+                }
+              />
+              <Button
+                variety="primary"
+                size="m"
+                iconRight={
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    className="w-[20px] h-[20px]"
+                  />
+                }
+              />
+            </ButtonGroup>
           ),
         }}
       >
