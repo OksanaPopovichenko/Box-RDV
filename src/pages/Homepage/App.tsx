@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../../components/atoms";
 import { Card, ButtonGroup } from "../../components/molecules";
+import { Tabbar } from "../../components/organisms";
 
 function App(): JSX.Element {
   return (
-    <div className="bg-[#CDCDCD] min-h-screen h-full w-full pt-4">
+    <div className="bg-[#CDCDCD] min-h-screen h-full w-full py-4">
       <h1 className="text-center text-2xl font-bold color-[#34423E] py-3">
         Box RDV
       </h1>
@@ -38,8 +39,9 @@ function App(): JSX.Element {
             </ButtonGroup>
           ),
         }}
+        footer={<Tabbar state="choisie" />}
       >
-        <div className="py-5 px-7 flex flex-col gap-4">
+        <>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -58,7 +60,7 @@ function App(): JSX.Element {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </div>
-        </div>
+        </>
       </Card>
     </div>
   );
