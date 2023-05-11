@@ -30,9 +30,9 @@ export default function Button(props: ButtonProps): JSX.Element {
     outline:
       "bg-transparent border border-[#5F706A] text-[#34423E] hover:border-[#7F8C88] hover:text-[#5F706A]",
     plain:
-      "bg-transparent p-0 text-[#34423E] rounded-none hover:text-[#5F706A]",
+      "bg-transparent p-0 m-2.5 text-[#34423E] rounded-none hover:text-[#5F706A]",
     common:
-      "text-white leading-5 cursor-pointer font-semibold flex flex-row items-center",
+      "text-white leading-4 cursor-pointer font-semibold flex flex-row items-center",
   };
 
   const sizeList: { [key: string]: string } = {

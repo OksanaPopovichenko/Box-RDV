@@ -15,7 +15,7 @@ export default function ButtonGroup(props: ButtonGroupProps): JSX.Element {
   };
 
   return (
-    <div className={`flex justify-center items-start ${gapList[gap]}`}>
+    <div className={`flex justify-center items-center ${gapList[gap]}`}>
       {children}
     </div>
   );

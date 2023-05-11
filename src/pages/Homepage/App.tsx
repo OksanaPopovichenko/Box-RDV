@@ -39,7 +39,7 @@ function App(): JSX.Element {
             </ButtonGroup>
           ),
         }}
-        footer={<Tabbar state="choisie" />}
+        footer={<Tabbar state="choisi & venu" />}
       >
         <>
           <div>
