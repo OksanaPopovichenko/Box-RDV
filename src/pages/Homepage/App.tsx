@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "../../components/ui";
+import { Card, Button } from "../../components/ui";
 
 function App(): JSX.Element {
   return (
@@ -10,7 +10,11 @@ function App(): JSX.Element {
       <Card
         header={{
           title: "Rendez-vous",
-          buttonGroup: <div>Button</div>,
+          buttonGroup: (
+            <Button variety="primary" size="medium">
+              Button
+            </Button>
+          ),
         }}
       >
         <div>

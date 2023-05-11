@@ -14,7 +14,7 @@ export default function Card(props: CardProps): JSX.Element {
   return (
     <div className="flex justify-center">
       <div className="max-w-[1100px] w-full bg-white mt-4 rounded-xl overflow-hidden">
-        <div className="py-3.5 px-7 flex flex-row justify-between">
+        <div className="py-1.5 px-7 flex flex-row justify-between items-center">
           <h2 className="text-[15px] color-[#34423E] font-semibold">
             {header.title}
           </h2>
