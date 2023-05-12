@@ -13,10 +13,27 @@ interface InputProps {
     btnText: string;
     onChange: () => void;
   };
+  data?: {
+    input1Props: {
+      value?: string;
+      placeholder?: string;
+      setValue?: (value: string) => void;
+      className?: string;
+      disabled?: boolean;
+    };
+    input2Props: {
+      value?: string;
+      placeholder?: string;
+      setValue?: (value: string) => void;
+      className?: string;
+      disabled?: boolean;
+    };
+  };
 }
 
 export default function Input(props: InputProps): JSX.Element {
-  const { type, placeholder, className, value, setValue, icon, action } = props;
+  const { type, placeholder, className, value, setValue, icon, action, data } =
+    props;
 
   const [inputValue, setInputValue] = useState(value ? value : "");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -39,50 +56,76 @@ export default function Input(props: InputProps): JSX.Element {
   const typeList: { [key: string]: string } = {
     simple:
       "border border-[#ECEEED] rounded-md px-3 py-4 focus:outline-none focus:border-[#48BB78] focus:shadow-sm",
-    double: "",
+    double:
+      "text-center border border-[#ECEEED] px-3 py-4 focus:outline-none focus:border-[#48BB78] focus:shadow-sm disabled:bg-[#F9F9F9]",
     labelInside:
       "border border-[#ECEEED] rounded-md px-3 py-4 focus:outline-none focus:border-[#48BB78] focus:shadow-sm",
     common: "text-[13px] leading-4 h-12 placeholder-[#7F8C88] cursor-text",
   };
 
   return (
-    <div className="flex flex-row items-center gap-2.5">
-      {icon && <div className="text-[#7F8C88] text-xl">{icon}</div>}
-      <div className="relative">
-        <div className="relative">
+    <div>
+      {type !== "double" ? (
+        <div className="flex flex-row items-center gap-2.5">
+          {icon && <div className="text-[#7F8C88] text-xl">{icon}</div>}
+          <div className="relative">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder={type !== "labelInside" ? placeholder : ""}
+                className={`${typeList.common} ${typeList[type]} ${
+                  inputValue && type === "labelInside" ? "pt-6 pb-2" : ""
+                } ${action ? "pr-[71px]" : ""} ${className || ""}`}
+                value={inputValue}
+                onChange={handleChange}
+                ref={inputRef}
+              />
+              {type === "labelInside" && (
+                <label
+                  className={`absolute left-3 cursor-pointer text-[#7F8C88] transition-all ${
+                    inputValue
+                      ? "top-2 text-[12px] text-[#7F8C88] leading-4"
+                      : "top-3.5 text-[13px]"
+                  }`}
+                  htmlFor="input"
+                  onClick={handleLabelClick}
+                  aria-hidden="true"
+                >
+                  {placeholder}
+                </label>
+              )}
+            </div>
+            {action && (
+              <div className="absolute right-2 top-2">
+                <Button variety="primary" size="s">
+                  {action.btnText}
+                </Button>
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        <div className="flex flex-row">
           <input
             type="text"
-            placeholder={type !== "labelInside" ? placeholder : ""}
+            placeholder={data?.input1Props.placeholder}
             className={`${typeList.common} ${typeList[type]} ${
-              inputValue && type === "labelInside" ? "pt-6 pb-2" : ""
-            } ${action ? "pr-[71px]" : ""} ${className || ""}`}
-            value={inputValue}
-            onChange={handleChange}
-            ref={inputRef}
+              data?.input1Props.className || ""
+            } rounded-l-md border-r-[0.5px]`}
+            value={data?.input1Props.value}
+            disabled={data?.input1Props?.disabled}
           />
-          {type === "labelInside" && (
-            <label
-              className={`absolute left-3 cursor-pointer text-[#7F8C88] transition-all ${
-                inputValue
-                  ? "top-2 text-[12px] text-[#7F8C88] leading-4"
-                  : "top-3.5 text-[13px]"
-              }`}
-              htmlFor="input"
-              onClick={handleLabelClick}
-              aria-hidden="true"
-            >
-              {placeholder}
-            </label>
-          )}
+          <input
+            type="text"
+            placeholder={data?.input2Props.placeholder}
+            className={`${typeList.common} ${typeList[type]} ${
+              data?.input2Props.className || ""
+            } rounded-r-md border-l-[0.5px]`}
+            value={data?.input2Props.value}
+            disabled={data?.input2Props?.disabled}
+          />
         </div>
-        {action && (
-          <div className="absolute right-2 top-2">
-            <Button variety="primary" size="s">
-              {action.btnText}
-            </Button>
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 }

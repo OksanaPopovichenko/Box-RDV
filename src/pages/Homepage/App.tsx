@@ -73,6 +73,24 @@ function App(): JSX.Element {
                 onChange: () => {},
               }}
             />
+            <Input
+              type="double"
+              data={{
+                input1Props: {
+                  placeholder: "date",
+                  value: "20",
+                  setValue: () => {},
+                  className: "w-[108px]",
+                  disabled: true,
+                },
+                input2Props: {
+                  placeholder: "month",
+                  value: "Sept",
+                  setValue: () => {},
+                  className: "w-[108px]",
+                },
+              }}
+            />
           </div>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
