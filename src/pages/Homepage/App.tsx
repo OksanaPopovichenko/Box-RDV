@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faCheck } from "@fortawesome/free-solid-svg-icons";
-import { Button, Checkbox } from "../../components/atoms";
+import {
+  faArrowLeft,
+  faCalendarAlt,
+  faCheck,
+} from "@fortawesome/free-solid-svg-icons";
+import { Button, Checkbox, Input } from "../../components/atoms";
 import { Card, ButtonGroup } from "../../components/molecules";
 import { Tabbar } from "../../components/organisms";
 
 function App(): JSX.Element {
-  const [agree, setAgree] = useState(false);
+  const [fullDay, setFullDay] = useState(false);
 
   const handleCheckboxChange = () => {
-    setAgree(!agree);
+    setFullDay(!fullDay);
   };
 
   return (
@@ -53,7 +57,18 @@ function App(): JSX.Element {
               onChange={handleCheckboxChange}
               name="agree"
               label="Checkbox"
-              checked={agree}
+              checked={fullDay}
+            />
+
+            <Input
+              type="simple"
+              placeholder="Email"
+              icon={<FontAwesomeIcon icon={faCalendarAlt} />}
+            />
+            <Input
+              type="labelInside"
+              placeholder="Address"
+              icon={<FontAwesomeIcon icon={faCalendarAlt} />}
             />
           </div>
           <div>
