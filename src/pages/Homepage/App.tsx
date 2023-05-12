@@ -83,11 +83,12 @@ function App(): JSX.Element {
           <FontAwesomeIcon icon={faPlusCircle} className="text-lg" />
           <span className="text-[13px]">Ajouter une prestation à la suite</span>
         </div>
-        <div className="flex flex-row justify-start">
+        <div className="flex flex-row justify-start gap-4">
           <Button
             variety="plain"
             size="s"
             iconLeft={<FontAwesomeIcon icon={faFileAlt} />}
+            className="!p-0 !m-0"
           >
             Ajouter un titre
           </Button>
@@ -95,6 +96,7 @@ function App(): JSX.Element {
             variety="plain"
             size="s"
             iconLeft={<FontAwesomeIcon icon={faPencilAlt} />}
+            className="!p-0 !m-0"
           >
             Ajouter une note
           </Button>
