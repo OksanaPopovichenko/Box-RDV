@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import React, { ReactNode } from "react";
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   variety: "primary" | "secondary" | "destructive" | "plain" | "outline";
   size: "xl" | "l" | "m" | "s";

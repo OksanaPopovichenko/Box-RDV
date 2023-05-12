@@ -68,7 +68,10 @@ function App(): JSX.Element {
             <Input
               type="labelInside"
               placeholder="Address"
-              icon={<FontAwesomeIcon icon={faCalendarAlt} />}
+              action={{
+                btnText: "Créer",
+                onChange: () => {},
+              }}
             />
           </div>
           <div>

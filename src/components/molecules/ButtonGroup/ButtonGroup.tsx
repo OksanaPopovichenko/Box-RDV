@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-export interface ButtonGroupProps {
+interface ButtonGroupProps {
   children: ReactNode;
   gap: "l" | "m" | "s";
 }

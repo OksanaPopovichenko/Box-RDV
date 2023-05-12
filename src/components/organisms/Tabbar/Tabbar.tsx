@@ -9,7 +9,7 @@ import {
   ChoisiVenu,
 } from "./components";
 
-export interface TabbarProps {
+interface TabbarProps {
   state: "choisie" | "pas venu" | "none" | "choisi & venu" | "venu";
 }
 

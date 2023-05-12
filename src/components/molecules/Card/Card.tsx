@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-export interface CardProps {
+interface CardProps {
   children: ReactNode;
   header: {
     title: string;
