@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../../components/atoms";
 import { Card, ButtonGroup } from "../../components/molecules";
-import { Client, Date, Tabbar } from "../../components/organisms";
+import { Client, Date, Service, Tabbar } from "../../components/organisms";
 
 function App(): JSX.Element {
   return (
@@ -43,6 +43,7 @@ function App(): JSX.Element {
       >
         <Client />
         <Date />
+        <Service />
       </Card>
     </div>
   );
