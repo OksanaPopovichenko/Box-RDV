@@ -24,15 +24,14 @@ export default function Button(props: ButtonProps): JSX.Element {
   } = props;
 
   const varietyList: { [key: string]: string } = {
-    primary: "bg-[#48BB78] hover:bg-[#38A169]",
-    secondary: "bg-[#2C5282] hover:bg-[#1F4282]",
-    destructive: "bg-[#F56565] hover:bg-[#E53E3E]",
+    primary: "text-white bg-[#48BB78] hover:bg-[#38A169]",
+    secondary: "text-white  bg-[#2C5282] hover:bg-[#1F4282]",
+    destructive: "text-white bg-[#F56565] hover:bg-[#E53E3E]",
     outline:
       "bg-transparent border border-[#5F706A] text-[#34423E] hover:border-[#7F8C88] hover:text-[#5F706A]",
     plain:
       "bg-transparent p-0 m-2.5 text-[#34423E] rounded-none hover:text-[#5F706A]",
-    common:
-      "text-white leading-4 cursor-pointer font-semibold flex flex-row items-center",
+    common: "leading-4 cursor-pointer font-semibold flex flex-row items-center",
   };
 
   const sizeList: { [key: string]: string } = {
