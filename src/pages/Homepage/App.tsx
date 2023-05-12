@@ -70,9 +70,9 @@ function App(): JSX.Element {
         <Date />
         {chosenServices.map((service) => (
           <Service
-            key={service.id}
+            key={service.id} // eslint-disable-line
             numberOfServices={chosenServices.length}
-            onDelete={() => deleteService(service.id)}
+            onDelete={() => deleteService(service.id)} // eslint-disable-line
           />
         ))}
         <div
