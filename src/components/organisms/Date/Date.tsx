@@ -73,8 +73,13 @@ export default function Date(): JSX.Element {
       <Button
         variety="plain"
         size="m"
-        iconLeft={<FontAwesomeIcon icon={faSync} />}
-        className="text-[#48BB78] border-b-[#48BB78] hover:text-[#38A169] hover:border-b-[#38A169]"
+        iconLeft={
+          <FontAwesomeIcon
+            className="text-[#48BB78] hover:text-[#38A169]"
+            icon={faSync}
+          />
+        }
+        className="!m-0 !p-0 text-[#48BB78] border-b-[#48BB78] hover:text-[#38A169] hover:border-b-[#38A169]"
       >
         Répéter
       </Button>

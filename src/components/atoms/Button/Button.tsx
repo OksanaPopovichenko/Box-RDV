@@ -52,7 +52,13 @@ export default function Button(props: ButtonProps): JSX.Element {
       {...rest}
     >
       {iconLeft && (
-        <span className={`text-[#5F706A] ${className || ""}`}>{iconLeft}</span>
+        <span
+          className={`${
+            variety === "plain" ? "text-[#5F706A]" : "text-white"
+          } ${className || ""}`}
+        >
+          {iconLeft}
+        </span>
       )}
       {children && (
         <span
@@ -68,7 +74,13 @@ export default function Button(props: ButtonProps): JSX.Element {
         </span>
       )}
       {iconRight && (
-        <span className={`text-[#5F706A] ${className || ""}`}>{iconRight}</span>
+        <span
+          className={`${variety === "plain" ? "text-[#5F706A]" : ""} ${
+            className || ""
+          }`}
+        >
+          {iconRight}
+        </span>
       )}
     </button>
   );
