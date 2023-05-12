@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../../components/atoms";
 import { Card, ButtonGroup } from "../../components/molecules";
-import { Client, Tabbar } from "../../components/organisms";
+import { Client, Date, Tabbar } from "../../components/organisms";
 
 function App(): JSX.Element {
   return (
@@ -42,6 +42,7 @@ function App(): JSX.Element {
         footer={<Tabbar state="choisi & venu" />}
       >
         <Client />
+        <Date />
       </Card>
     </div>
   );

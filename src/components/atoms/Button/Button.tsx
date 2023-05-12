@@ -9,6 +9,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   iconLeft?: ReactNode;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
+  className?: string;
 }
 
 export default function Button(props: ButtonProps): JSX.Element {
@@ -20,6 +21,7 @@ export default function Button(props: ButtonProps): JSX.Element {
     iconLeft,
     type = "button",
     onClick,
+    className,
     ...rest
   } = props;
 
@@ -44,7 +46,9 @@ export default function Button(props: ButtonProps): JSX.Element {
   return (
     <button
       type={type}
-      className={`${varietyList.common} ${varietyList[variety]} ${sizeList[size]}`}
+      className={`${varietyList.common} ${varietyList[variety]} ${
+        sizeList[size]
+      } ${className || ""}`}
       {...rest}
     >
       {iconLeft}
@@ -52,7 +56,9 @@ export default function Button(props: ButtonProps): JSX.Element {
         <span
           className={
             variety === "plain"
-              ? "border-b border-[#5F706A] hover:border-[#7F8C88]"
+              ? `border-b border-[#5F706A] hover:border-[#7F8C88] ${
+                  className || ""
+                }`
               : "border-0"
           }
         >
