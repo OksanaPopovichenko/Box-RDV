@@ -1,21 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowLeft,
-  faCalendarAlt,
-  faCheck,
-} from "@fortawesome/free-solid-svg-icons";
-import { Button, Checkbox, Input } from "../../components/atoms";
+import { faArrowLeft, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "../../components/atoms";
 import { Card, ButtonGroup } from "../../components/molecules";
-import { Tabbar } from "../../components/organisms";
+import { Client, Tabbar } from "../../components/organisms";
 
 function App(): JSX.Element {
-  const [fullDay, setFullDay] = useState(false);
-
-  const handleCheckboxChange = () => {
-    setFullDay(!fullDay);
-  };
-
   return (
     <div className="bg-[#CDCDCD] min-h-screen h-full w-full py-4">
       <h1 className="text-center text-2xl font-bold color-[#34423E] py-3">
@@ -51,57 +41,7 @@ function App(): JSX.Element {
         }}
         footer={<Tabbar state="choisi & venu" />}
       >
-        <>
-          <div>
-            <Checkbox
-              onChange={handleCheckboxChange}
-              name="agree"
-              label="Checkbox"
-              checked={fullDay}
-            />
-
-            <Input
-              type="simple"
-              placeholder="Email"
-              icon={<FontAwesomeIcon icon={faCalendarAlt} />}
-            />
-            <Input
-              type="labelInside"
-              placeholder="Address"
-              action={{
-                btnText: "Créer",
-                onChange: () => {},
-              }}
-            />
-            <Input
-              type="double"
-              data={{
-                input1Props: {
-                  placeholder: "date",
-                  value: "20",
-                  setValue: () => {},
-                  className: "w-[108px]",
-                  disabled: true,
-                },
-                input2Props: {
-                  placeholder: "month",
-                  value: "Sept",
-                  setValue: () => {},
-                  className: "w-[108px]",
-                },
-              }}
-            />
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </div>
-        </>
+        <Client />
       </Card>
     </div>
   );

@@ -2,7 +2,7 @@
 import React, { ReactNode, useState, useRef } from "react";
 import Button from "../Button/Button";
 
-interface InputProps {
+interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   type: "simple" | "labelInside" | "double";
   placeholder?: string;
   className?: string;
@@ -13,6 +13,7 @@ interface InputProps {
     btnText: string;
     onChange: () => void;
   };
+  disabled?: boolean;
   data?: {
     input1Props: {
       value?: string;
@@ -32,8 +33,17 @@ interface InputProps {
 }
 
 export default function Input(props: InputProps): JSX.Element {
-  const { type, placeholder, className, value, setValue, icon, action, data } =
-    props;
+  const {
+    type,
+    placeholder,
+    className,
+    value,
+    setValue,
+    icon,
+    action,
+    data,
+    ...rest
+  } = props;
 
   const [inputValue, setInputValue] = useState(value ? value : "");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -55,7 +65,7 @@ export default function Input(props: InputProps): JSX.Element {
 
   const typeList: { [key: string]: string } = {
     simple:
-      "border border-[#ECEEED] rounded-md px-3 py-4 focus:outline-none focus:border-[#48BB78] focus:shadow-sm",
+      "border border-[#ECEEED] rounded-md px-3 py-4 focus:outline-none focus:border-[#48BB78] focus:shadow-sm disabled:bg-[#ECEEED]",
     double:
       "text-center border border-[#ECEEED] px-3 py-4 focus:outline-none focus:border-[#48BB78] focus:shadow-sm disabled:bg-[#F9F9F9]",
     labelInside:
@@ -67,7 +77,7 @@ export default function Input(props: InputProps): JSX.Element {
     <div>
       {type !== "double" ? (
         <div className="flex flex-row items-center gap-2.5">
-          {icon && <div className="text-[#7F8C88] text-xl">{icon}</div>}
+          {icon && <div className="text-[#7F8C88] text-l">{icon}</div>}
           <div className="relative">
             <div className="relative">
               <input
@@ -79,6 +89,7 @@ export default function Input(props: InputProps): JSX.Element {
                 value={inputValue}
                 onChange={handleChange}
                 ref={inputRef}
+                {...rest}
               />
               {type === "labelInside" && (
                 <label
@@ -95,7 +106,7 @@ export default function Input(props: InputProps): JSX.Element {
                 </label>
               )}
             </div>
-            {action && (
+            {inputValue && action && (
               <div className="absolute right-2 top-2">
                 <Button variety="primary" size="s">
                   {action.btnText}
