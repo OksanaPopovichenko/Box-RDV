@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Box-RDV/static/css/main.df7410af.css",
-    "main.js": "/Box-RDV/static/js/main.f6eead35.js",
+    "main.js": "/Box-RDV/static/js/main.be441512.js",
     "static/js/787.2a2de7b9.chunk.js": "/Box-RDV/static/js/787.2a2de7b9.chunk.js",
     "index.html": "/Box-RDV/index.html",
     "main.df7410af.css.map": "/Box-RDV/static/css/main.df7410af.css.map",
-    "main.f6eead35.js.map": "/Box-RDV/static/js/main.f6eead35.js.map",
+    "main.be441512.js.map": "/Box-RDV/static/js/main.be441512.js.map",
     "787.2a2de7b9.chunk.js.map": "/Box-RDV/static/js/787.2a2de7b9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.df7410af.css",
-    "static/js/main.f6eead35.js"
+    "static/js/main.be441512.js"
   ]
 }
