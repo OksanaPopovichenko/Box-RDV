@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider>
-      <BrowserRouter>
+      <BrowserRouter basename="/Box-RDV">
         <Routes>
           <Route path="/" element={<App />} />
         </Routes>
