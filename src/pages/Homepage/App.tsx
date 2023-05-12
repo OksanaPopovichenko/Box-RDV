@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft,
@@ -12,12 +13,22 @@ import { Card, ButtonGroup } from "../../components/molecules";
 import { Client, Date, Service, Tabbar } from "../../components/organisms";
 
 function App(): JSX.Element {
-  const [chosenServices, setChosenServices] = useState([{ id: 1 }]);
+  const [chosenServices, setChosenServices] = useState([{ id: uuidv4() }]); // eslint-disable-line
 
   const addService = () => {
-    const newServiceId = chosenServices.length + 1;
-    const newService = { id: newServiceId };
+    const newService = { id: uuidv4() }; // eslint-disable-line
     setChosenServices([...chosenServices, newService]);
+  };
+
+  const deleteService = (id: string) => {
+    if (chosenServices.length === 1) {
+      setChosenServices([]);
+    } else {
+      const updatedServices = chosenServices.filter(
+        (service) => service.id !== id
+      );
+      setChosenServices(updatedServices);
+    }
   };
 
   return (
@@ -58,7 +69,11 @@ function App(): JSX.Element {
         <Client />
         <Date />
         {chosenServices.map((service) => (
-          <Service key={service.id} />
+          <Service
+            key={service.id}
+            numberOfServices={chosenServices.length}
+            onDelete={() => deleteService(service.id)}
+          />
         ))}
         <div
           className="cursor-pointer flex flex-row justify-center rounded-md border border-dashed border-[#98A29F] p-4 items-center gap-2 text-[#5F706A]"

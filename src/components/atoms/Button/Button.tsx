@@ -49,6 +49,7 @@ export default function Button(props: ButtonProps): JSX.Element {
       className={`${varietyList.common} ${varietyList[variety]} ${
         sizeList[size]
       } ${className || ""}`}
+      onClick={onClick}
       {...rest}
     >
       {iconLeft && (

@@ -1,5 +1,5 @@
 /* eslint-disable no-unneeded-ternary */
-import React, { ReactNode, useState, useRef } from "react";
+import React, { ReactNode, useState, useRef, useEffect } from "react";
 import Button from "../Button/Button";
 
 interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
@@ -56,6 +56,10 @@ export default function Input(props: InputProps): JSX.Element {
       setValue(newValue);
     }
   };
+
+  useEffect(() => {
+    setInputValue(value ? value : "");
+  }, [value]);
 
   const handleLabelClick = () => {
     if (inputRef.current) {
