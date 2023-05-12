@@ -51,7 +51,9 @@ export default function Button(props: ButtonProps): JSX.Element {
       } ${className || ""}`}
       {...rest}
     >
-      {iconLeft}
+      {iconLeft && (
+        <span className={`text-[#5F706A] ${className || ""}`}>{iconLeft}</span>
+      )}
       {children && (
         <span
           className={
@@ -65,7 +67,9 @@ export default function Button(props: ButtonProps): JSX.Element {
           {children}
         </span>
       )}
-      {iconRight}
+      {iconRight && (
+        <span className={`text-[#5F706A] ${className || ""}`}>{iconRight}</span>
+      )}
     </button>
   );
 }
