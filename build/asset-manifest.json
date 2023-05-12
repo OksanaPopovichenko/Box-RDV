@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/OksanaPopovichenko/Box-RDV/static/css/main.df7410af.css",
+    "main.js": "/OksanaPopovichenko/Box-RDV/static/js/main.37ada958.js",
+    "static/js/787.2a2de7b9.chunk.js": "/OksanaPopovichenko/Box-RDV/static/js/787.2a2de7b9.chunk.js",
+    "index.html": "/OksanaPopovichenko/Box-RDV/index.html",
+    "main.df7410af.css.map": "/OksanaPopovichenko/Box-RDV/static/css/main.df7410af.css.map",
+    "main.37ada958.js.map": "/OksanaPopovichenko/Box-RDV/static/js/main.37ada958.js.map",
+    "787.2a2de7b9.chunk.js.map": "/OksanaPopovichenko/Box-RDV/static/js/787.2a2de7b9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.df7410af.css",
+    "static/js/main.37ada958.js"
+  ]
+}
