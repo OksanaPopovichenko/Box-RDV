@@ -6,12 +6,14 @@ interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   type: "simple" | "labelInside" | "double";
   placeholder?: string;
   className?: string;
+  wrapClassName?: string;
   value?: string;
   setValue?: (value: string) => void;
   icon?: ReactNode;
   action?: {
     btnText: string;
-    onChange: () => void;
+    onClick: () => void;
+    display?: boolean;
   };
   disabled?: boolean;
   data?: {
@@ -37,6 +39,7 @@ export default function Input(props: InputProps): JSX.Element {
     type,
     placeholder,
     className,
+    wrapClassName,
     value,
     setValue,
     icon,
@@ -79,12 +82,12 @@ export default function Input(props: InputProps): JSX.Element {
   };
 
   return (
-    <div>
+    <div className={wrapClassName}>
       {type !== "double" ? (
         <div className="flex flex-row items-center gap-2.5">
           {icon && <div className="text-[#7F8C88] text-l">{icon}</div>}
-          <div className="relative">
-            <div className="relative">
+          <div className="relative flex flex-1">
+            <div className="relative flex flex-1">
               <input
                 type="text"
                 placeholder={type !== "labelInside" ? placeholder : ""}
@@ -111,9 +114,9 @@ export default function Input(props: InputProps): JSX.Element {
                 </label>
               )}
             </div>
-            {inputValue && action && (
+            {inputValue && action && action.display && (
               <div className="absolute right-2 top-2">
-                <Button variety="primary" size="s">
+                <Button variety="primary" size="s" onClick={action.onClick}>
                   {action.btnText}
                 </Button>
               </div>
