@@ -29,7 +29,7 @@ export default function Switch(props: SwitchProps): JSX.Element {
           >
             <div
               className={`h-3.5 w-3.5 rounded-full transition-transform duration-300 ease-in-out bg-white ${
-                checked ? "transform translate-x-3.5" : "translate-x-0"
+                checked ? "transform translate-x-4" : "translate-x-1"
               }`}
             />
           </div>

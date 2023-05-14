@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
-import { Input, Switch } from "../../atoms";
+import { faCircleUser, faUser } from "@fortawesome/free-regular-svg-icons";
+import { Input, Switch, Tab } from "../../atoms";
 
 export default function Client(): JSX.Element {
   const [toggle, setSwitch] = useState(false);
+  const options = [
+    { value: "option1", label: "Option 1" },
+    { value: "option2", label: "Option 2" },
+    { value: "option3", label: "Option 3" },
+  ];
+
+  const handleTabChange = (value: string) => {
+    console.log("Selected option:", value); // eslint-disable-line
+  };
 
   const handleSwitchChange = () => {
     setSwitch(!toggle);
@@ -41,6 +50,11 @@ export default function Client(): JSX.Element {
         name="toggle"
         label="Switch"
         checked={toggle}
+      />
+      <Tab
+        options={options}
+        onChange={handleTabChange}
+        icon={<FontAwesomeIcon icon={faUser} />}
       />
     </div>
   );
