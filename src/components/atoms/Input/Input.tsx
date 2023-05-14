@@ -121,25 +121,28 @@ export default function Input(props: InputProps): JSX.Element {
           </div>
         </div>
       ) : (
-        <div className="flex flex-row">
-          <input
-            type="text"
-            placeholder={data?.input1Props.placeholder}
-            className={`${typeList.common} ${typeList[type]} ${
-              data?.input1Props.className || ""
-            } rounded-l-md border-r-[0.5px]`}
-            value={data?.input1Props.value}
-            disabled={data?.input1Props?.disabled}
-          />
-          <input
-            type="text"
-            placeholder={data?.input2Props.placeholder}
-            className={`${typeList.common} ${typeList[type]} ${
-              data?.input2Props.className || ""
-            } rounded-r-md border-l-[0.5px]`}
-            value={data?.input2Props.value}
-            disabled={data?.input2Props?.disabled}
-          />
+        <div className="flex flex-row gap-2 items-center">
+          {icon && <div className="text-[#7F8C88] text-l">{icon}</div>}
+          <div className="flex flex-row">
+            <input
+              type="text"
+              placeholder={data?.input1Props.placeholder}
+              className={`${typeList.common} ${typeList[type]} ${
+                data?.input1Props.className || ""
+              } rounded-l-md border-r-[0.5px]`}
+              value={data?.input1Props.value}
+              disabled={data?.input1Props?.disabled}
+            />
+            <input
+              type="text"
+              placeholder={data?.input2Props.placeholder}
+              className={`${typeList.common} ${typeList[type]} ${
+                data?.input2Props.className || ""
+              } rounded-r-md border-l-[0.5px]`}
+              value={data?.input2Props.value}
+              disabled={data?.input2Props?.disabled}
+            />
+          </div>
         </div>
       )}
     </div>

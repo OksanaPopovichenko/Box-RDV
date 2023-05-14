@@ -33,7 +33,7 @@ export default function Tab(props: TabProps): JSX.Element {
               selectedValue === option.value
                 ? "bg-white text-[#34423E]"
                 : "bg-[#F6F7F8] text-[#7F8C88]"
-            } text-[13px] leading-4 py-4 px-2 w-[84px] border border-[#ECEEED] ${
+            } text-[13px] leading-4 w-[84px] h-[48px] border border-[#ECEEED] ${
               index === 0
                 ? "rounded-l-lg border-r-0"
                 : index === options.length - 1
