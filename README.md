@@ -49,3 +49,5 @@ For example, I would create separate components for Phone Input and Input with b
 1. How the state of the Tabbar changes was not clear in Figma, so I implemented different options, but I always display only one by default.
 
 2. I didn't have time to implement Dropdown and Phone Input components.
+
+3. Icons are different from your design, because I used only free Fontawesome icons.
