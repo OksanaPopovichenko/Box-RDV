@@ -11,31 +11,26 @@ import {
 import { Button, Input, Switch, Tab } from "../../atoms";
 
 export default function Client(): JSX.Element {
+  const [createClient, handleCreationOfClient] = useState(false);
+
   const [toggleRappel, handleRappel] = useState(true);
   const [toggleMarketing, handleMarketing] = useState(false);
-
-  const [createClient, handleCreationOfClient] = useState(false);
   const [name, handleName] = useState("");
+  const [phone, handlePhone] = useState("");
+  const [email, handleEmail] = useState("");
+  const [gender, handleGender] = useState("homme");
 
-  const handleTabChange = (value: string) => {
-    console.log("Selected option:", value); // eslint-disable-line
-  };
-
-  const handleRappelChange = () => {
-    handleRappel(!toggleRappel);
-  };
-
-  const handleMarketingChange = () => {
-    handleMarketing(!toggleMarketing);
+  const handleGenderTab = (value: string) => {
+    handleGender(value);
   };
 
   const resetClientCreation = () => {
-    // TODO: add phone and email reset
     handleCreationOfClient(false);
     handleName("");
+    handlePhone("");
+    handleEmail("");
+    handleGender("homme");
   };
-
-  console.log(createClient); // eslint-disable-line
 
   return (
     <div className="p-5 bg-white rounded-lg flex flex-col gap-4">
@@ -55,17 +50,23 @@ export default function Client(): JSX.Element {
           }}
         />
         <Input
-          type="simple"
+          type="labelInside"
           placeholder="Téléphone"
           wrapClassName="flex-1 max-w-[240px]"
           className="w-full"
+          value={phone}
+          setValue={(value) => handlePhone(value)}
+          pattern="\+\d{1,3}\d{9}"
           disabled={!createClient}
         />
         <Input
-          type="simple"
+          type="labelInside"
           placeholder="Email"
           wrapClassName="flex-1 max-w-[356px]"
           className="w-full"
+          value={email}
+          setValue={(value) => handleEmail(value)}
+          pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
           disabled={!createClient}
         />
         {createClient && (
@@ -88,8 +89,9 @@ export default function Client(): JSX.Element {
                 { value: "femme", label: "Femme" },
                 { value: "enfant", label: "Enfant" },
               ]}
-              onChange={handleTabChange}
+              onChange={handleGenderTab}
               icon={<FontAwesomeIcon icon={faUser} />}
+              value="homme"
             />
             <Input
               type="double"
@@ -110,13 +112,13 @@ export default function Client(): JSX.Element {
               }}
             />
             <Switch
-              onChange={handleRappelChange}
+              onChange={() => handleRappel(!toggleRappel)}
               name="rappel"
               label="SMS de rappel"
               checked={toggleRappel}
             />
             <Switch
-              onChange={handleMarketingChange}
+              onChange={() => handleMarketing(!toggleMarketing)}
               name="marketing"
               label="SMS marketing"
               checked={toggleMarketing}

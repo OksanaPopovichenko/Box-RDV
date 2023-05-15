@@ -10,11 +10,14 @@ interface TabProps {
   options: TabOption[];
   onChange: (value: string) => void;
   icon?: ReactNode;
+  value?: string;
 }
 
 export default function Tab(props: TabProps): JSX.Element {
-  const { options, onChange, icon } = props;
-  const [selectedValue, setSelectedValue] = useState<string>(options[0].value);
+  const { options, onChange, icon, value } = props;
+  const [selectedValue, setSelectedValue] = useState<string>(
+    value || options[0].value
+  );
 
   const handleTabChange = (newValue: string) => {
     setSelectedValue(newValue);

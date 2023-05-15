@@ -7,6 +7,7 @@ interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   className?: string;
   wrapClassName?: string;
+  pattern?: string;
   value?: string;
   setValue?: (value: string) => void;
   icon?: ReactNode;
@@ -45,6 +46,7 @@ export default function Input(props: InputProps): JSX.Element {
     icon,
     action,
     data,
+    pattern,
     ...rest
   } = props;
 
@@ -76,7 +78,7 @@ export default function Input(props: InputProps): JSX.Element {
     double:
       "text-center border border-[#ECEEED] px-3 py-4 focus:outline-none focus:border-[#48BB78] focus:shadow-sm disabled:bg-[#F9F9F9]",
     labelInside:
-      "border border-[#ECEEED] rounded-md px-3 py-4 focus:outline-none focus:border-[#48BB78] focus:shadow-sm",
+      "border border-[#ECEEED] rounded-md px-3 py-4 focus:outline-none focus:border-[#48BB78] focus:shadow-sm disabled:bg-[#ECEEED]",
     common:
       "text-[#34423E] text-[13px] leading-4 h-12 placeholder-[#7F8C88] cursor-text",
   };
@@ -97,6 +99,7 @@ export default function Input(props: InputProps): JSX.Element {
                 value={inputValue}
                 onChange={handleChange}
                 ref={inputRef}
+                pattern={pattern}
                 {...rest}
               />
               {type === "labelInside" && (
