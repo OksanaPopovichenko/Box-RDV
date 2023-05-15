@@ -23,8 +23,6 @@ export default function Service(props: ServiceProps): JSX.Element {
     }
   };
 
-  console.log(prestation, collaborateur); // eslint-disable-line
-
   return (
     <div className="flex flex-row justify-between p-5 bg-white rounded-lg">
       <form className="flex flex-row justify-between gap-4 items-center">
