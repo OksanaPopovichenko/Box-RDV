@@ -30,12 +30,22 @@ I used the Atomic Design Methodology to create the components for the design sys
 https://atomicdesign.bradfrost.com/chapter-2/
 
 Therefore, the components are divided into:
-1. atoms (Button, Checkbox, Input)
+1. atoms (Button, Checkbox, Input, Switch, Tab)
 2. molecules (ButtonGroup, Card) 
 3. organisms (Client, Date, Service, Tabbar)
+
+## State management
+
+I used Jotai (similar to Redux), a lightweight and flexible state management library, as it is easier to manipulate data.
+
+As an example, I created a global state for the client and showed how to update it.
+
+## Recommendation for your DS
+In your design system Input has so many possible states and this makes the code in the Input file more complex. 
+For example, I would create separate components for Phone Input and Input with button, as these are already components that consist of 2-3 separate components.
 
 ## Notes
 
 1. How the state of the Tabbar changes was not clear in Figma, so I implemented different options, but I always display only one by default.
 
-2. I didn't have time to implement everything in 2 days :)
+2. I didn't have time to implement Dropdown and Phone Input components.
