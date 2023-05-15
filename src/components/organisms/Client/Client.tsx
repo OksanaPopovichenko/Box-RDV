@@ -14,11 +14,9 @@ import { initialState } from "../../../states/client";
 
 export default function Client(): JSX.Element {
   const [createClient, handleCreationOfClient] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
 
   const { client, updateClientInfo } = useClient();
-
-  const [toggleRappel, handleRappel] = useState(true);
-  const [toggleMarketing, handleMarketing] = useState(false);
 
   const resetClientCreation = () => {
     handleCreationOfClient(false);
@@ -107,27 +105,49 @@ export default function Client(): JSX.Element {
               }}
             />
             <Switch
-              onChange={() => handleRappel(!toggleRappel)}
+              onChange={() =>
+                updateClientInfo({
+                  ...client,
+                  toggleRappel: !client.toggleRappel,
+                })
+              }
               name="rappel"
               label="SMS de rappel"
-              checked={toggleRappel}
+              checked={client.toggleRappel}
             />
             <Switch
-              onChange={() => handleMarketing(!toggleMarketing)}
+              onChange={() =>
+                updateClientInfo({
+                  ...client,
+                  toggleMarketing: !client.toggleMarketing,
+                })
+              }
               name="marketing"
               label="SMS marketing"
-              checked={toggleMarketing}
+              checked={client.toggleMarketing}
             />
           </div>
           <div className="flex flex-col gap-4">
-            <Button
-              size="m"
-              className="!p-0 !m-0"
-              variety="plain"
-              iconLeft={<FontAwesomeIcon icon={faInfoCircle} />}
-            >
-              Info client
-            </Button>
+            {showInfo ? (
+              <Input
+                type="labelInside"
+                placeholder="Info client"
+                wrapClassName="flex-1"
+                className="w-full"
+                value="Quam inposita tranquillis pleraeque sunt primigenia eis quae institutores ad."
+                icon={<FontAwesomeIcon icon={faInfoCircle} />}
+              />
+            ) : (
+              <Button
+                size="m"
+                className="!p-0 !m-0"
+                variety="plain"
+                iconLeft={<FontAwesomeIcon icon={faInfoCircle} />}
+                onClick={() => setShowInfo(true)}
+              >
+                Info client
+              </Button>
+            )}
             <div className="flex flex-row items-center gap-5">
               <div className="flex flex-row gap-1 items-center">
                 <Button
