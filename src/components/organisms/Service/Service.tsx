@@ -13,14 +13,24 @@ export default function Service(props: ServiceProps): JSX.Element {
 
   const [prestation, setPrestation] = useState("");
   const [collaborateur, setCollaborateur] = useState("");
+  const [hasInput, setHasInput] = useState(false);
 
   const handleDelete = () => {
     setPrestation("");
     setCollaborateur("");
+    setHasInput(false);
 
-    if (numberOfServices > 1) {
-      onDelete();
-    }
+    onDelete();
+  };
+
+  const handlePrestationChange = (value: string) => {
+    setPrestation(value);
+    setHasInput(value !== "" || collaborateur !== "");
+  };
+
+  const handleCollaborateurChange = (value: string) => {
+    setCollaborateur(value);
+    setHasInput(value !== "" || prestation !== "");
   };
 
   return (
@@ -28,7 +38,7 @@ export default function Service(props: ServiceProps): JSX.Element {
       <form className="flex flex-row justify-between gap-4 items-center">
         <Input
           type="labelInside"
-          setValue={(value) => setPrestation(value)}
+          setValue={handlePrestationChange}
           placeholder="Choisir une prestation"
           icon={<FontAwesomeIcon icon={faFileAlt} />}
           className="min-w-[183px]"
@@ -38,7 +48,7 @@ export default function Service(props: ServiceProps): JSX.Element {
           type="labelInside"
           placeholder="Choisir un collaborateur"
           className="min-w-[195px]"
-          setValue={(value) => setCollaborateur(value)}
+          setValue={handleCollaborateurChange}
           value={collaborateur}
         />
       </form>
@@ -60,14 +70,31 @@ export default function Service(props: ServiceProps): JSX.Element {
             },
           }}
         />
-        <Button
-          variety="outline"
-          size="l"
-          type="reset"
-          className="w-[48px]"
-          iconRight={<FontAwesomeIcon icon={faTrashAlt} />}
-          onClick={handleDelete}
-        />
+        {numberOfServices > 1 ? (
+          <Button
+            variety="outline"
+            size="l"
+            type="reset"
+            className="w-[48px]"
+            iconRight={<FontAwesomeIcon icon={faTrashAlt} />}
+            onClick={handleDelete}
+          />
+        ) : (
+          hasInput && (
+            <Button
+              variety="outline"
+              size="l"
+              type="reset"
+              className="w-[48px]"
+              iconRight={<FontAwesomeIcon icon={faTrashAlt} />}
+              onClick={() => {
+                setPrestation("");
+                setCollaborateur("");
+                setHasInput(false);
+              }}
+            />
+          )
+        )}
       </div>
     </div>
   );
